@@ -1,0 +1,428 @@
+/* ========================================
+   CONTACT SECTION - MOBILE FIRST (DARK)
+   ======================================== */
+
+.section {
+    position: relative;
+    padding: var(--space-3xl) 0;
+    background: #000000;
+}
+
+.bgGlow {
+    display: none;
+}
+
+/* Header - Mobile */
+.header {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto var(--space-2xl);
+}
+
+.title {
+    margin: var(--space-sm) 0;
+    color: #ffffff;
+    font-size: 1.75rem;
+}
+
+.subtitle {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.75;
+}
+
+/* Grid - Mobile (single column) */
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+/* Info Column - Mobile */
+.infoColumn {
+    order: 2;
+}
+
+/* Clinic Image */
+.clinicImageWrapper {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: var(--space-lg);
+}
+
+.clinicImage {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.clinicOverlay {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    font-size: 0.75rem;
+    color: #ffffff;
+}
+
+/* Info Card - Mobile */
+.infoCard {
+    padding: var(--space-lg);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+}
+
+.infoTitle {
+    font-size: 1.125rem;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.infoIntro {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+}
+
+/* Info List - Mobile */
+.infoList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.infoItem {
+    display: flex;
+    gap: 12px;
+}
+
+.infoIcon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 10px;
+    color: #34d399;
+}
+
+.infoItem h4 {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.infoItem p,
+.infoItem a {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+}
+
+.infoItem a:hover {
+    color: #34d399;
+}
+
+.secondaryPhone {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 2px;
+}
+
+.closedNote {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.35);
+    margin-top: 2px;
+}
+
+/* Quick Actions - Mobile */
+.quickActions {
+    display: flex;
+    gap: 10px;
+    margin-top: var(--space-lg);
+}
+
+.actionButton,
+.actionButtonWhatsapp {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.actionButton {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #34d399;
+}
+
+.actionButtonWhatsapp {
+    background: rgba(37, 211, 102, 0.1);
+    border: 1px solid rgba(37, 211, 102, 0.25);
+    color: #25D366;
+}
+
+/* Form Column - Mobile */
+.formColumn {
+    order: 1;
+}
+
+.formCard {
+    padding: var(--space-lg);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+}
+
+.formHeader {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.formHeader svg {
+    color: var(--accent-gold);
+    width: 24px;
+    height: 24px;
+    margin-bottom: var(--space-sm);
+}
+
+.formHeader h3 {
+    font-size: 1.125rem;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.formHeader p {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Form - Mobile */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.formRow {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.formGroup label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.formGroup .input {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 14px 16px;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+.formGroup .input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.formGroup .input:focus {
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.08);
+}
+
+.formGroup select.input {
+    cursor: pointer;
+}
+
+.form .btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 1rem;
+    margin-top: var(--space-sm);
+}
+
+.privacyNote {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    margin-top: var(--space-md);
+}
+
+/* Success Message */
+.successMessage {
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
+}
+
+.successMessage svg {
+    color: #34d399;
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--space-md);
+}
+
+.successMessage h4 {
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin-bottom: var(--space-sm);
+}
+
+.successMessage p {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+}
+
+/* ========================================
+   TABLET (640px+)
+   ======================================== */
+@media (min-width: 640px) {
+    .formRow {
+        flex-direction: row;
+    }
+
+    .formRow .formGroup {
+        flex: 1;
+    }
+
+    .clinicImage {
+        height: 220px;
+    }
+}
+
+/* ========================================
+   TABLET (768px+)
+   ======================================== */
+@media (min-width: 768px) {
+    .section {
+        padding: var(--space-4xl) 0;
+    }
+
+    .header {
+        max-width: 600px;
+        margin-bottom: var(--space-3xl);
+    }
+
+    .title {
+        font-size: 2.25rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .infoCard {
+        padding: var(--space-xl);
+    }
+
+    .formCard {
+        padding: var(--space-xl);
+    }
+}
+
+/* ========================================
+   DESKTOP (1024px+)
+   ======================================== */
+@media (min-width: 1024px) {
+    .section {
+        padding: var(--space-5xl) 0;
+    }
+
+    .bgGlow {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    .header {
+        max-width: 640px;
+    }
+
+    .title {
+        font-size: 2.75rem;
+    }
+
+    .subtitle {
+        font-size: 1.125rem;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: var(--space-3xl);
+    }
+
+    .infoColumn {
+        order: 1;
+    }
+
+    .formColumn {
+        order: 2;
+    }
+
+    .clinicImage {
+        height: 260px;
+    }
+
+    .infoIcon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .infoItem h4 {
+        font-size: 0.875rem;
+    }
+
+    .actionButton:hover {
+        background: rgba(16, 185, 129, 0.15);
+        border-color: rgba(16, 185, 129, 0.4);
+    }
+
+    .actionButtonWhatsapp:hover {
+        background: rgba(37, 211, 102, 0.15);
+        border-color: rgba(37, 211, 102, 0.4);
+    }
+
+    .formCard {
+        padding: var(--space-2xl);
+    }
+
+    .formGroup .input {
+        padding: 16px 18px;
+    }
+}

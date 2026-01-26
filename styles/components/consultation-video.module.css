@@ -1,0 +1,341 @@
+/* ========================================
+   CONSULTATION VIDEO - MOBILE FIRST
+   ======================================== */
+
+.videoContainer {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    /* Increased slightly for better visibility */
+    /* Reduced from 320px */
+    margin: 0 auto;
+}
+
+/* Video Frame - Ultra Premium 'Living Gold' Border */
+.videoFrame {
+    position: relative;
+    border-radius: 20px;
+    /* Slight increase for luxury feel */
+    background: #000;
+    padding: 3px;
+    /* Width of the gold border */
+    overflow: hidden;
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    /* Prepare for rotation animation */
+    isolation: isolate;
+}
+
+/* The Rotating Gold Gradient */
+.videoFrame::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg,
+            transparent 0%,
+            #b8860b 10%,
+            #d4af37 20%,
+            #fceeb5 25%,
+            #d4af37 30%,
+            #b8860b 40%,
+            transparent 50%);
+    animation: rotateGold 6s linear infinite;
+    z-index: -1;
+    /* Center the rotation */
+    top: -50%;
+    left: -50%;
+}
+
+/* The Black Inner Background (behind video) */
+.videoFrame::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    /* Matches padding */
+    background: #000;
+    border-radius: 17px;
+    /* 20px - 3px */
+    z-index: -1;
+}
+
+/* Celestial Corner Accents - Ultra Luxury */
+.cornerAccentTop,
+.cornerAccentBottom {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: 20;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.cornerAccentTop {
+    top: -2px;
+    left: -2px;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-top-left-radius: 20px;
+    box-shadow:
+        -2px -2px 12px rgba(255, 255, 255, 0.9),
+        inset 2px 2px 12px rgba(255, 255, 255, 0.4);
+    filter: drop-shadow(0 0 8px #d4af37);
+    animation: pulseCorner 5s ease-in-out infinite;
+}
+
+.cornerAccentBottom {
+    bottom: -2px;
+    right: -2px;
+    border-bottom: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+    border-bottom-right-radius: 20px;
+    box-shadow:
+        2px 2px 12px rgba(255, 255, 255, 0.9),
+        inset -2px -2px 12px rgba(255, 255, 255, 0.4);
+    filter: drop-shadow(0 0 8px #d4af37);
+    animation: pulseCorner 5s ease-in-out infinite 2.5s;
+}
+
+/* Corner Lens Flares via pseudo-elements */
+.cornerAccentTop::after,
+.cornerAccentBottom::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow:
+        0 0 10px #fff,
+        0 0 20px #d4af37,
+        0 0 40px #b8860b;
+    animation: flareTwinkle 3s ease-in-out infinite;
+}
+
+.cornerAccentTop::after {
+    top: -3px;
+    left: -3px;
+}
+
+.cornerAccentBottom::after {
+    bottom: -3px;
+    right: -3px;
+}
+
+@keyframes pulseCorner {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        filter: drop-shadow(0 0 6px #d4af37);
+        border-color: rgba(255, 255, 255, 0.8);
+    }
+
+    50% {
+        opacity: 1;
+        filter: drop-shadow(0 0 15px #fceeb5);
+        border-color: #ffffff;
+    }
+}
+
+@keyframes flareTwinkle {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+@keyframes rotateGold {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.video {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 4 / 5;
+    /* Shorter portrait crop for mobile */
+    object-position: top center;
+    /* Ensures we crop the bottom (feet), never the head/width */
+    object-fit: cover;
+}
+
+/* Controls */
+.controls {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.controlButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.controlButton:active {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(0.95);
+}
+
+/* Caption */
+.caption {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 100px;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.caption span {
+    font-size: 0.6875rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.3;
+}
+
+/* Decorative Glow */
+.glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle,
+            rgba(16, 185, 129, 0.1) 0%,
+            transparent 60%);
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ========================================
+   TABLET (768px+)
+   ======================================== */
+@media (min-width: 768px) {
+    .videoContainer {
+        max-width: 380px;
+    }
+
+    .videoFrame {
+        border-radius: 20px;
+        box-shadow:
+            0 30px 60px rgba(0, 0, 0, 0.18),
+            0 0 0 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .controlButton {
+        width: 40px;
+        height: 40px;
+    }
+
+    .controlButton:hover {
+        background: rgba(0, 0, 0, 0.8);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .caption {
+        padding: 10px 14px;
+    }
+
+    .caption span {
+        font-size: 0.75rem;
+    }
+}
+
+/* ========================================
+   DESKTOP (1024px+)
+   ======================================== */
+@media (min-width: 1024px) {
+    .videoContainer {
+        max-width: 420px;
+    }
+
+    .videoFrame {
+        border-radius: 24px;
+        box-shadow:
+            0 40px 80px rgba(0, 0, 0, 0.2),
+            0 0 0 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .video {
+        aspect-ratio: 3 / 4;
+    }
+
+    .controls {
+        bottom: 16px;
+        right: 16px;
+        gap: 10px;
+    }
+
+    .controlButton {
+        width: 44px;
+        height: 44px;
+        transition: all 0.3s ease;
+    }
+
+    .controlButton:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .caption {
+        bottom: 16px;
+        left: 16px;
+        right: 120px;
+        padding: 12px 16px;
+        border-radius: 10px;
+    }
+
+    .caption span {
+        font-size: 0.8125rem;
+    }
+
+    .glow {
+        width: 140%;
+        height: 140%;
+    }
+}
+
+/* ========================================
+   LARGE DESKTOP (1280px+)
+   ======================================== */
+@media (min-width: 1280px) {
+    .videoContainer {
+        max-width: 480px;
+    }
+}

@@ -1,0 +1,96 @@
+/* ========================================
+   APPLE-STYLE FLOATING ISLAND CTA
+   ======================================== */
+
+.container {
+    position: fixed;
+    bottom: 24px;
+    left: 16px;
+    right: 16px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 4px 12px rgba(0, 0, 0, 0.05);
+    transform: translateY(150%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visible {
+    transform: translateY(0);
+}
+
+/* Call Button (Secondary) */
+.btnCall {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--text-primary);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btnCall:active {
+    transform: scale(0.92);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.btnCall svg {
+    color: var(--primary-600);
+}
+
+/* Book Button (Primary) */
+.btnBook {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 52px;
+    background: var(--gradient-primary);
+    /* Brand Emerald Gradient */
+    /* Apple Black for ultra premium contrast */
+    color: #ffffff;
+    border-radius: 16px;
+    border: none;
+    font-family: var(--font-heading);
+    /* DM Sans */
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btnBook:active {
+    transform: scale(0.96);
+    background: #1a1a1a;
+}
+
+/* Animation on Appear */
+.btnBook svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Hide on Desktop */
+@media (min-width: 768px) {
+    .container {
+        display: none;
+    }
+}

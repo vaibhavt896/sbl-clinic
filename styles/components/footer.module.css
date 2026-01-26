@@ -1,0 +1,283 @@
+/* ========================================
+   FOOTER - MOBILE FIRST (DARK)
+   ======================================== */
+
+.footer {
+    position: relative;
+    background: #000000;
+    padding: var(--space-2xl) 0 var(--space-lg);
+    overflow: hidden;
+}
+
+.footerGlow {
+    display: none;
+}
+
+/* Footer Grid - Mobile (single column) */
+.footerGrid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+/* Brand Column - Mobile */
+.brandColumn {
+    text-align: center;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: var(--space-md);
+}
+
+.logoMark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-radius: 10px;
+    color: #ffffff;
+}
+
+.logoText {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.clinicName {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.doctorName {
+    font-size: 0.625rem;
+    font-weight: 600;
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tagline {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.7;
+    max-width: 280px;
+    margin: 0 auto var(--space-md);
+}
+
+.socialLinks {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+/* Links Columns - Mobile */
+.linksColumn {
+    text-align: center;
+}
+
+.columnTitle {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+}
+
+.linksList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footerLink {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.3s ease;
+}
+
+.serviceItem {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Contact Column - Mobile */
+.contactColumn {
+    text-align: center;
+}
+
+.contactList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.contactItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    justify-content: center;
+    text-align: left;
+}
+
+.contactIcon {
+    color: #34d399;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.contactItem span,
+.contactItem a {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+}
+
+/* Footer Bottom - Mobile */
+.footerBottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.heartIcon {
+    color: #ef4444;
+}
+
+.legalLinks {
+    display: flex;
+    gap: var(--space-lg);
+}
+
+.legalLinks a {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    transition: color 0.3s ease;
+}
+
+/* ========================================
+   TABLET (768px+)
+   ======================================== */
+@media (min-width: 768px) {
+    .footer {
+        padding: var(--space-3xl) 0 var(--space-xl);
+    }
+
+    .footerGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-2xl);
+    }
+
+    .brandColumn {
+        grid-column: 1 / -1;
+        text-align: center;
+    }
+
+    .linksColumn,
+    .contactColumn {
+        text-align: left;
+    }
+
+    .contactItem {
+        justify-content: flex-start;
+    }
+
+    .footerBottom {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* ========================================
+   DESKTOP (1024px+)
+   ======================================== */
+@media (min-width: 1024px) {
+    .footer {
+        padding: var(--space-4xl) 0 var(--space-xl);
+    }
+
+    .footerGlow {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 200px;
+        background: radial-gradient(ellipse, rgba(16, 185, 129, 0.06) 0%, transparent 60%);
+        pointer-events: none;
+    }
+
+    .footerGrid {
+        grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+        gap: var(--space-3xl);
+    }
+
+    .brandColumn {
+        grid-column: auto;
+        text-align: left;
+    }
+
+    .logo {
+        justify-content: flex-start;
+    }
+
+    .tagline {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .socialLinks {
+        justify-content: flex-start;
+    }
+
+    .socialLink:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(16, 185, 129, 0.3);
+        color: #34d399;
+    }
+
+    .footerLink:hover {
+        color: #34d399;
+    }
+
+    .legalLinks a:hover {
+        color: #34d399;
+    }
+}

@@ -1,0 +1,282 @@
+/* ========================================
+   SERVICES SECTION - MOBILE FIRST (DARK)
+   ======================================== */
+
+.section {
+    position: relative;
+    padding: var(--space-3xl) 0;
+    background: #000000;
+}
+
+.bgPattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(16, 185, 129, 0.06) 1px, transparent 0);
+    background-size: 32px 32px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.decorativeCircle {
+    display: none;
+}
+
+/* Header - Mobile */
+.header {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto var(--space-2xl);
+}
+
+.title {
+    margin: var(--space-sm) 0;
+    color: #ffffff;
+    font-size: 1.75rem;
+}
+
+.subtitle {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.75;
+}
+
+/* Grid - Mobile (single column) */
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Card - Mobile */
+.card {
+    position: relative;
+    padding: var(--space-lg);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card.featured {
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.06) 0%, rgba(255, 255, 255, 0.02) 50%);
+    border-color: rgba(201, 162, 39, 0.15);
+}
+
+/* Card Header */
+.cardHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(16, 185, 129, 0.12);
+    border-radius: 10px;
+    color: #34d399;
+}
+
+.card.featured .iconWrapper {
+    background: rgba(201, 162, 39, 0.12);
+    color: #d4af37;
+}
+
+.popularBadge {
+    padding: 4px 8px;
+    background: rgba(201, 162, 39, 0.12);
+    border: 1px solid rgba(201, 162, 39, 0.3);
+    border-radius: 100px;
+    font-family: var(--font-heading);
+    font-size: 0.5625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #d4af37;
+}
+
+/* Card Content */
+.cardTitle {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.cardDescription {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.65;
+    margin-bottom: var(--space-md);
+    flex-grow: 1;
+}
+
+/* Highlights */
+.highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: var(--space-md);
+}
+
+.highlight {
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    font-size: 0.625rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* Card Link */
+.cardLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #34d399;
+}
+
+.card.featured .cardLink {
+    color: #d4af37;
+}
+
+/* ========================================
+   TABLET (640px+)
+   ======================================== */
+@media (min-width: 640px) {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .card {
+        padding: var(--space-xl);
+    }
+
+    .iconWrapper {
+        width: 48px;
+        height: 48px;
+    }
+
+    .cardTitle {
+        font-size: 1.0625rem;
+    }
+
+    .cardDescription {
+        font-size: 0.875rem;
+    }
+}
+
+/* ========================================
+   TABLET (768px+)
+   ======================================== */
+@media (min-width: 768px) {
+    .section {
+        padding: var(--space-4xl) 0;
+    }
+
+    .header {
+        max-width: 600px;
+        margin-bottom: var(--space-3xl);
+    }
+
+    .title {
+        font-size: 2.25rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* ========================================
+   DESKTOP (1024px+)
+   ======================================== */
+@media (min-width: 1024px) {
+    .section {
+        padding: var(--space-5xl) 0;
+    }
+
+    .decorativeCircle {
+        display: block;
+        position: absolute;
+        left: -100px;
+        top: 20%;
+        width: 300px;
+        height: 300px;
+        opacity: 0.6;
+    }
+
+    .header {
+        max-width: 720px;
+    }
+
+    .title {
+        font-size: 2.75rem;
+    }
+
+    .subtitle {
+        font-size: 1.125rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-lg);
+    }
+
+    .card {
+        transition: all 0.4s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(16, 185, 129, 0.25);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .card.featured:hover {
+        border-color: rgba(201, 162, 39, 0.4);
+        box-shadow: 0 20px 40px rgba(201, 162, 39, 0.1);
+    }
+
+    .iconWrapper {
+        width: 52px;
+        height: 52px;
+        transition: all 0.3s ease;
+    }
+
+    .card:hover .iconWrapper {
+        transform: scale(1.05);
+    }
+
+    .cardTitle {
+        font-size: 1.125rem;
+    }
+
+    .cardDescription {
+        font-size: 0.9375rem;
+    }
+
+    .highlight {
+        font-size: 0.75rem;
+    }
+
+    .cardLink {
+        transition: all 0.3s ease;
+    }
+
+    .cardLink:hover {
+        gap: 10px;
+    }
+}

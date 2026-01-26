@@ -1,0 +1,128 @@
+/* ========================================
+   CTA SECTION - MOBILE FIRST
+   ======================================== */
+
+.section {
+    position: relative;
+    padding: var(--space-2xl) 0;
+    background: linear-gradient(180deg, #faf9f6 0%, #f5f4f2 100%);
+}
+
+.card {
+    position: relative;
+    padding: var(--space-xl);
+    background: linear-gradient(135deg, #0a0a0a 0%, #050505 100%);
+    border-radius: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.cardGlow {
+    display: none;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: var(--space-sm);
+}
+
+.subtitle {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    max-width: 400px;
+    margin: 0 auto var(--space-lg);
+}
+
+.ctaGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ctaGroup .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ========================================
+   TABLET (768px+)
+   ======================================== */
+@media (min-width: 768px) {
+    .section {
+        padding: var(--space-3xl) 0;
+    }
+
+    .card {
+        padding: var(--space-2xl) var(--space-xl);
+        border-radius: 24px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        max-width: 500px;
+    }
+
+    .ctaGroup {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .ctaGroup .btn {
+        width: auto;
+    }
+}
+
+/* ========================================
+   DESKTOP (1024px+)
+   ======================================== */
+@media (min-width: 1024px) {
+    .section {
+        padding: var(--space-4xl) 0;
+    }
+
+    .card {
+        padding: var(--space-3xl) var(--space-2xl);
+    }
+
+    .cardGlow {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 300px;
+        background: radial-gradient(ellipse, rgba(16, 185, 129, 0.12) 0%, transparent 60%);
+        filter: blur(40px);
+        pointer-events: none;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.125rem;
+        max-width: 560px;
+        margin-bottom: var(--space-xl);
+    }
+
+    .ctaGroup {
+        gap: var(--space-lg);
+    }
+
+    .ctaGroup .btn:hover {
+        transform: translateY(-3px);
+    }
+}

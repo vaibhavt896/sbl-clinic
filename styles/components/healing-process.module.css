@@ -1,0 +1,276 @@
+/* ========================================
+   HEALING PROCESS - MOBILE FIRST (DARK)
+   ======================================== */
+
+.section {
+    position: relative;
+    padding: var(--space-3xl) 0;
+    background: #000000;
+    overflow: hidden;
+}
+
+.bgElements {
+    display: none;
+}
+
+.connectingLine {
+    display: none;
+}
+
+/* Header - Mobile */
+.header {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto var(--space-2xl);
+}
+
+.title {
+    margin: var(--space-sm) 0;
+    color: #ffffff;
+    font-size: 1.75rem;
+}
+
+.subtitle {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.75;
+}
+
+/* Steps Grid - Mobile (single column) */
+.stepsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Step Card - Mobile */
+.stepCard {
+    position: relative;
+    padding: var(--space-lg);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+/* Step Header */
+.stepHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+}
+
+.stepIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(16, 185, 129, 0.04) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    border-radius: 10px;
+    color: #34d399;
+}
+
+.stepNumber {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.05em;
+}
+
+.stepTitle {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.stepDescription {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.65;
+}
+
+/* Corner Accent */
+.cornerAccent {
+    display: none;
+}
+
+/* Bottom Message - Mobile */
+.bottomMessage {
+    text-align: center;
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+}
+
+.bottomMessage p {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.7;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.bottomMessage strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.bottomMessage em {
+    color: #34d399;
+    font-style: italic;
+}
+
+/* ========================================
+   TABLET (640px+)
+   ======================================== */
+@media (min-width: 640px) {
+    .stepsGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .stepCard {
+        padding: var(--space-xl);
+    }
+
+    .stepIcon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .stepTitle {
+        font-size: 1.0625rem;
+    }
+
+    .stepDescription {
+        font-size: 0.875rem;
+    }
+}
+
+/* ========================================
+   TABLET (768px+)
+   ======================================== */
+@media (min-width: 768px) {
+    .section {
+        padding: var(--space-4xl) 0;
+    }
+
+    .header {
+        max-width: 600px;
+        margin-bottom: var(--space-3xl);
+    }
+
+    .title {
+        font-size: 2.25rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .bottomMessage p {
+        font-size: 1rem;
+        max-width: 480px;
+    }
+}
+
+/* ========================================
+   DESKTOP (1024px+)
+   ======================================== */
+@media (min-width: 1024px) {
+    .section {
+        padding: var(--space-5xl) 0;
+    }
+
+    .bgElements {
+        display: block;
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    .connectingLine {
+        display: block;
+        position: absolute;
+        top: 52%;
+        left: 12%;
+        right: 12%;
+        height: 1px;
+        background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(16, 185, 129, 0.2) 20%,
+                rgba(201, 162, 39, 0.25) 50%,
+                rgba(16, 185, 129, 0.2) 80%,
+                transparent 100%);
+        transform-origin: left;
+    }
+
+    .header {
+        max-width: 640px;
+    }
+
+    .title {
+        font-size: 2.75rem;
+    }
+
+    .subtitle {
+        font-size: 1.125rem;
+    }
+
+    .stepsGrid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-xl);
+    }
+
+    .stepCard {
+        transition: all 0.4s ease;
+    }
+
+    .stepCard:hover {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(16, 185, 129, 0.2);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .stepIcon {
+        width: 52px;
+        height: 52px;
+        transition: all 0.3s ease;
+    }
+
+    .stepCard:hover .stepIcon {
+        transform: scale(1.05);
+    }
+
+    .stepTitle {
+        font-size: 1.125rem;
+    }
+
+    .stepDescription {
+        font-size: 0.9375rem;
+    }
+
+    .cornerAccent {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 60px;
+        height: 60px;
+        background: radial-gradient(circle at 100% 100%,
+                rgba(16, 185, 129, 0.08) 0%,
+                transparent 70%);
+    }
+
+    .bottomMessage p {
+        font-size: 1.125rem;
+        max-width: 520px;
+    }
+}

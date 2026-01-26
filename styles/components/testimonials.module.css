@@ -1,0 +1,389 @@
+/* ========================================
+   TESTIMONIALS - MOBILE FIRST (LIGHT)
+   ======================================== */
+
+.section {
+    position: relative;
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(180deg, #ffffff 0%, #faf9f7 100%);
+    overflow: hidden;
+}
+
+.bgGlow {
+    display: none;
+}
+
+.decorativeQuotes {
+    display: none;
+}
+
+/* Header - Mobile */
+.header {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto var(--space-xl);
+}
+
+.title {
+    margin: var(--space-sm) 0;
+    font-size: 1.75rem;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* Carousel Container - Mobile */
+.carouselContainer {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.carousel {
+    position: relative;
+}
+
+/* Testimonial Card - Mobile */
+.testimonialCard {
+    position: relative;
+}
+
+.cardContent {
+    padding: var(--space-lg);
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+}
+
+.quoteIcon {
+    color: var(--accent-gold);
+    opacity: 0.3;
+    margin-bottom: var(--space-md);
+}
+
+.quoteIcon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.quote {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: var(--space-lg);
+}
+
+/* Meta Info - Mobile */
+.meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    background: var(--gradient-primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+.authorInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.authorName {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.authorLocation {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Treatment Info */
+.treatment {
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border-light);
+}
+
+.treatmentLabel {
+    display: block;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    color: var(--primary-600);
+    margin-bottom: 4px;
+}
+
+.durationRow {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.stars {
+    color: var(--accent-gold);
+    display: flex;
+    gap: 2px;
+}
+
+.stars svg {
+    width: 12px;
+    height: 12px;
+}
+
+/* Controls - Mobile */
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+
+.navButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--white);
+    border: 1px solid var(--border-muted);
+    border-radius: 50%;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.navButton:active {
+    background: var(--pearl);
+}
+
+.dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: var(--warm-gray-200);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.dot.active {
+    background: var(--primary-500);
+    width: 24px;
+    border-radius: 5px;
+}
+
+/* Trust Row - Mobile */
+.trustRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border-light);
+}
+
+.trustItem {
+    text-align: center;
+}
+
+.trustValue {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.trustLabel {
+    display: block;
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.divider {
+    display: none;
+}
+
+/* ========================================
+   TABLET (768px+)
+   ======================================== */
+@media (min-width: 768px) {
+    .section {
+        padding: var(--space-4xl) 0;
+    }
+
+    .header {
+        max-width: 600px;
+        margin-bottom: var(--space-2xl);
+    }
+
+    .title {
+        font-size: 2.25rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .cardContent {
+        padding: var(--space-xl);
+    }
+
+    .quote {
+        font-size: 1rem;
+    }
+
+    .meta {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .treatment {
+        padding-top: 0;
+        border-top: none;
+        text-align: right;
+    }
+
+    .trustRow {
+        gap: var(--space-2xl);
+    }
+
+    .trustValue {
+        font-size: 1.75rem;
+    }
+
+    .trustLabel {
+        font-size: 0.75rem;
+    }
+
+    .divider {
+        display: block;
+        width: 1px;
+        height: 40px;
+        background: var(--border-muted);
+    }
+}
+
+/* ========================================
+   DESKTOP (1024px+)
+   ======================================== */
+@media (min-width: 1024px) {
+    .section {
+        padding: var(--space-5xl) 0;
+    }
+
+    .bgGlow {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, transparent 60%);
+        pointer-events: none;
+    }
+
+    .decorativeQuotes {
+        display: block;
+        position: absolute;
+        top: 10%;
+        right: 10%;
+        width: 200px;
+        height: 160px;
+        opacity: 0.5;
+    }
+
+    .header {
+        max-width: 640px;
+    }
+
+    .title {
+        font-size: 2.75rem;
+    }
+
+    .subtitle {
+        font-size: 1.125rem;
+    }
+
+    .carouselContainer {
+        max-width: 800px;
+    }
+
+    .cardContent {
+        padding: var(--space-2xl);
+    }
+
+    .quoteIcon svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .quote {
+        font-size: 1.125rem;
+    }
+
+    .avatar {
+        width: 52px;
+        height: 52px;
+        font-size: 0.875rem;
+    }
+
+    .authorName {
+        font-size: 1rem;
+    }
+
+    .navButton {
+        width: 48px;
+        height: 48px;
+    }
+
+    .navButton:hover {
+        border-color: var(--primary-400);
+        color: var(--primary-600);
+        box-shadow: var(--shadow-md);
+    }
+
+    .trustValue {
+        font-size: 2rem;
+    }
+}

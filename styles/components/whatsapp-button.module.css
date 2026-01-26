@@ -1,0 +1,180 @@
+.wrapper {
+    position: fixed;
+    bottom: var(--space-xl);
+    right: var(--space-xl);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-md);
+}
+
+/* Adjust for mobile sticky CTA */
+@media (max-width: 768px) {
+    .wrapper {
+        bottom: calc(var(--space-md) + 80px);
+        /* Position it above the mobile sticky bar */
+        right: var(--space-md);
+        gap: var(--space-sm);
+    }
+
+    .button {
+        width: 44px;
+        height: 44px;
+        box-shadow: 0 4px 16px rgba(37, 211, 102, 0.25);
+    }
+
+    .button svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .presenceIndicator {
+        width: 12px;
+        height: 12px;
+        top: 1px;
+        right: 1px;
+        border-width: 2px;
+    }
+
+    .tooltip {
+        max-width: 200px;
+        padding: var(--space-sm) var(--space-md);
+    }
+}
+
+.button {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    /* WhatsApp Green */
+    color: white;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.3);
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius-full);
+    background: inherit;
+    filter: blur(8px);
+    opacity: 0.4;
+    z-index: -1;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.presenceIndicator {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+    background: #4ade80;
+    border: 3px solid #25D366;
+    border-radius: var(--radius-full);
+}
+
+.tooltip {
+    background: var(--surface-glass-strong);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md) var(--space-lg);
+    box-shadow: var(--shadow-xl);
+    max-width: 240px;
+    position: relative;
+    cursor: pointer;
+    margin-right: var(--space-sm);
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 24px;
+    width: 16px;
+    height: 16px;
+    background: var(--surface-glass-strong);
+    border-right: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.tooltipContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tooltipText {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.tooltipStatus {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.statusDot {
+    width: 6px;
+    height: 6px;
+    background: #4ade80;
+    border-radius: var(--radius-full);
+}
+
+.closeTooltip {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeTooltip:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-primary);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+}
