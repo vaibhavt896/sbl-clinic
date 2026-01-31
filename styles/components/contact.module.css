@@ -1,11 +1,11 @@
 /* ========================================
-   CONTACT SECTION - MOBILE FIRST (DARK)
+   CONTACT SECTION - MOBILE FIRST (LIGHT)
    ======================================== */
 
 .section {
     position: relative;
     padding: var(--space-3xl) 0;
-    background: #000000;
+    background: var(--slate-50);
 }
 
 .bgGlow {
@@ -21,13 +21,13 @@
 
 .title {
     margin: var(--space-sm) 0;
-    color: #ffffff;
+    color: var(--slate-900);
     font-size: 1.75rem;
 }
 
 .subtitle {
     font-size: 0.9375rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--slate-500);
     line-height: 1.75;
 }
 
@@ -49,6 +49,7 @@
     border-radius: 14px;
     overflow: hidden;
     margin-bottom: var(--space-lg);
+    box-shadow: var(--shadow-md);
 }
 
 .clinicImage {
@@ -65,30 +66,32 @@
     align-items: center;
     gap: 6px;
     padding: 8px 12px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-radius: 8px;
     font-size: 0.75rem;
-    color: #ffffff;
+    color: var(--slate-700);
+    box-shadow: var(--shadow-sm);
 }
 
 /* Info Card - Mobile */
 .infoCard {
     padding: var(--space-lg);
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--white);
+    border: 1px solid var(--border-light);
     border-radius: 14px;
+    box-shadow: var(--shadow-sm);
 }
 
 .infoTitle {
     font-size: 1.125rem;
-    color: #ffffff;
+    color: var(--slate-900);
     margin-bottom: 6px;
 }
 
 .infoIntro {
     font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--slate-500);
     line-height: 1.6;
     margin-bottom: var(--space-lg);
 }
@@ -112,38 +115,38 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: rgba(16, 185, 129, 0.1);
+    background: rgba(13, 148, 136, 0.1);
     border-radius: 10px;
-    color: #34d399;
+    color: var(--primary-600);
 }
 
 .infoItem h4 {
     font-size: 0.8125rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--slate-900);
     margin-bottom: 2px;
 }
 
 .infoItem p,
 .infoItem a {
     font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--slate-600);
     line-height: 1.5;
 }
 
 .infoItem a:hover {
-    color: #34d399;
+    color: var(--primary-600);
 }
 
 .secondaryPhone {
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--slate-400);
     margin-top: 2px;
 }
 
 .closedNote {
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--slate-400);
     margin-top: 2px;
 }
 
@@ -170,14 +173,14 @@
 }
 
 .actionButton {
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.25);
-    color: #34d399;
+    background: rgba(13, 148, 136, 0.1);
+    border: 1px solid rgba(13, 148, 136, 0.2);
+    color: var(--primary-700);
 }
 
 .actionButtonWhatsapp {
     background: rgba(37, 211, 102, 0.1);
-    border: 1px solid rgba(37, 211, 102, 0.25);
+    border: 1px solid rgba(37, 211, 102, 0.2);
     color: #25D366;
 }
 
@@ -188,9 +191,10 @@
 
 .formCard {
     padding: var(--space-lg);
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--white);
+    border: 1px solid var(--border-light);
     border-radius: 14px;
+    box-shadow: var(--shadow-sm);
 }
 
 .formHeader {
@@ -199,7 +203,7 @@
 }
 
 .formHeader svg {
-    color: var(--accent-gold);
+    color: var(--primary-600);
     width: 24px;
     height: 24px;
     margin-bottom: var(--space-sm);
@@ -207,13 +211,13 @@
 
 .formHeader h3 {
     font-size: 1.125rem;
-    color: #ffffff;
+    color: var(--slate-900);
     margin-bottom: 4px;
 }
 
 .formHeader p {
     font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--slate-500);
 }
 
 /* Form - Mobile */
@@ -238,25 +242,26 @@
 .formGroup label {
     font-size: 0.8125rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--slate-700);
 }
 
 .formGroup .input {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+    background: var(--slate-50);
+    border: 1px solid var(--border-muted);
+    color: var(--slate-900);
     padding: 14px 16px;
     font-size: 1rem;
     border-radius: 10px;
 }
 
 .formGroup .input::placeholder {
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--slate-400);
 }
 
 .formGroup .input:focus {
-    border-color: rgba(16, 185, 129, 0.5);
-    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.08);
+    background: var(--white);
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.1);
 }
 
 .formGroup select.input {
@@ -272,7 +277,7 @@
 
 .privacyNote {
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--slate-400);
     text-align: center;
     margin-top: var(--space-md);
 }
@@ -284,7 +289,7 @@
 }
 
 .successMessage svg {
-    color: #34d399;
+    color: var(--primary-600);
     width: 48px;
     height: 48px;
     margin-bottom: var(--space-md);
@@ -292,13 +297,13 @@
 
 .successMessage h4 {
     font-size: 1.25rem;
-    color: #ffffff;
+    color: var(--slate-900);
     margin-bottom: var(--space-sm);
 }
 
 .successMessage p {
     font-size: 0.9375rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--slate-600);
     line-height: 1.6;
 }
 
@@ -365,7 +370,7 @@
         transform: translate(-50%, -50%);
         width: 800px;
         height: 800px;
-        background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+        background: radial-gradient(circle, rgba(13, 148, 136, 0.04) 0%, transparent 50%);
         pointer-events: none;
     }
 
@@ -409,13 +414,13 @@
     }
 
     .actionButton:hover {
-        background: rgba(16, 185, 129, 0.15);
-        border-color: rgba(16, 185, 129, 0.4);
+        background: rgba(13, 148, 136, 0.15);
+        border-color: rgba(13, 148, 136, 0.3);
     }
 
     .actionButtonWhatsapp:hover {
         background: rgba(37, 211, 102, 0.15);
-        border-color: rgba(37, 211, 102, 0.4);
+        border-color: rgba(37, 211, 102, 0.3);
     }
 
     .formCard {

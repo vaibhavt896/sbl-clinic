@@ -7,10 +7,15 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 90px;
-    padding-bottom: var(--space-xl);
-    overflow: hidden;
-    background: #000000;
+    padding-top: 60px;
+    /* Reduced from 90px to shift up */
+    padding-bottom: var(--space-4xl);
+    overflow: visible;
+    /* Ultra-Premium Background - Soft Mesh Gradient */
+    background:
+        radial-gradient(at 0% 0%, rgba(13, 148, 136, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(201, 162, 39, 0.05) 0px, transparent 50%),
+        linear-gradient(180deg, #fcfcfc 0%, #f1f5f9 100%);
 }
 
 /* Background Effects */
@@ -51,31 +56,51 @@
     position: relative;
 }
 
-/* Visual Content - Mobile (Layered Behind) */
+/* Visual Content - Mobile (Full Screen Background) */
 .visualContent {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     z-index: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    opacity: 0.8;
+    align-items: flex-end;
+    /* Doctor anchored to bottom */
+    opacity: 1;
+    transform: none;
 }
 
-/* Text Content - Mobile (Layered On Top) */
+/* Premium Gradient Overlay - ensuring text readability at top */
+.visualContent::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(248, 250, 252, 1) 0%,
+            rgba(248, 250, 252, 0.95) 30%,
+            rgba(248, 250, 252, 0.5) 60%,
+            rgba(248, 250, 252, 0) 85%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Text Content - Mobile (Top Focus) */
 .textContent {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
-    padding-bottom: 60px;
+    /* Push content up/Ensure space for image below */
+    padding-bottom: 320px;
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
 }
 
 /* Trust Badge */
@@ -84,19 +109,18 @@
     align-items: center;
     gap: 6px;
     padding: 6px 14px;
-    background: linear-gradient(135deg, rgba(201, 162, 39, 0.2) 0%, rgba(201, 162, 39, 0.08) 100%);
-    border: 1px solid rgba(201, 162, 39, 0.4);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.2);
     border-radius: 100px;
     font-family: var(--font-heading);
     font-size: 0.625rem;
     font-weight: 600;
-    color: #d4af37;
+    color: var(--primary-700);
     margin-bottom: var(--space-lg);
-    backdrop-filter: blur(4px);
 }
 
 .trustBadge svg {
-    color: #d4af37;
+    color: var(--primary-600);
     width: 12px;
     height: 12px;
 }
@@ -109,22 +133,23 @@
 .headline {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     line-height: 1.1;
+    text-align: left;
 }
 
 .headlineTop {
     font-family: var(--font-display);
     font-size: 1rem;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-secondary);
 }
 
 .headlineMain {
     font-size: 2.25rem;
     font-family: var(--font-display);
     font-weight: 600;
-    color: #ffffff;
+    color: var(--text-primary);
     margin: 4px 0;
 }
 
@@ -132,20 +157,26 @@
     font-size: 1.75rem;
     font-family: var(--font-display);
     font-weight: 600;
+    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding-bottom: 5px;
+    /* Prevent clipping of descenders */
 }
 
 /* Subheadline */
 .subheadline {
     font-size: 0.9375rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-secondary);
     line-height: 1.6;
-    max-width: 320px;
+    line-height: 1.6;
     margin-bottom: var(--space-lg);
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    text-align: left;
 }
 
 .subheadline strong {
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: 600;
 }
 
@@ -153,7 +184,7 @@
 .badgesRow {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 8px;
     margin-bottom: var(--space-lg);
 }
@@ -161,18 +192,29 @@
 .badge {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     font-family: var(--font-heading);
     font-size: 0.6875rem;
-    font-weight: 500;
-    color: #34d399;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 2px 6px;
-    border-radius: 4px;
+    font-weight: 600;
+    color: var(--primary-700);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 6px 12px;
+    border: 1px solid rgba(13, 148, 136, 0.15);
+    border-radius: 100px;
+    box-shadow: 0 2px 10px rgba(13, 148, 136, 0.05);
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(13, 148, 136, 0.3);
+    box-shadow: 0 4px 15px rgba(13, 148, 136, 0.1);
 }
 
 .badge svg {
-    color: #10b981;
+    color: var(--primary-600);
     width: 12px;
     height: 12px;
 }
@@ -183,7 +225,6 @@
     flex-direction: column;
     gap: 12px;
     width: 100%;
-    max-width: 300px;
     margin-bottom: var(--space-lg);
 }
 
@@ -204,10 +245,10 @@
     text-align: center;
     gap: 8px;
     padding: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--white);
+    border: 1px solid var(--border-light);
     border-radius: 14px;
-    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
 }
 
 .statIcon {
@@ -216,10 +257,10 @@
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.08) 100%);
-    border: 1px solid rgba(16, 185, 129, 0.25);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.08) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.2);
     border-radius: 8px;
-    color: #34d399;
+    color: var(--primary-600);
     flex-shrink: 0;
 }
 
@@ -235,10 +276,9 @@
 
 .statValue {
     font-family: var(--font-heading);
-    /* Modern Sans-Serif */
     font-size: 1.25rem;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--text-primary);
     line-height: 1;
     letter-spacing: -0.02em;
 }
@@ -247,7 +287,7 @@
     font-family: var(--font-body);
     font-size: 0.75rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-secondary);
     margin-top: 4px;
     line-height: 1.2;
 }
@@ -262,7 +302,8 @@
    ======================================== */
 @media (min-width: 768px) {
     .hero {
-        padding-top: 100px;
+        padding-top: 70px;
+        /* Reduced from 100px */
         padding-bottom: var(--space-2xl);
     }
 
@@ -275,14 +316,26 @@
         transform: none;
         top: auto;
         left: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
         opacity: 1;
         min-height: 400px;
         order: 1;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .visualContent::after {
+        display: none;
     }
 
     .textContent {
         padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
         text-align: center;
+        align-items: center;
     }
 
     .trustBadge {
@@ -371,7 +424,7 @@
     .scrollLine {
         width: 1px;
         height: 40px;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent);
         position: relative;
     }
 
@@ -382,14 +435,14 @@
         transform: translateX(-50%);
         width: 6px;
         height: 6px;
-        background: #10b981;
+        background: var(--primary-500);
         border-radius: 50%;
         animation: scrollDown 2s infinite;
     }
 
     .scrollIndicator span {
         font-size: 0.625rem;
-        color: rgba(255, 255, 255, 0.4);
+        color: var(--text-muted);
         text-transform: uppercase;
         letter-spacing: 0.1em;
     }
@@ -400,37 +453,41 @@
    ======================================== */
 @media (min-width: 1024px) {
     .hero {
-        padding-top: 100px;
+        padding-top: 40px;
+        /* Significantly reduced to pull content up */
         padding-bottom: var(--space-3xl);
     }
 
     .gradientOrb1 {
         display: block;
         position: absolute;
-        top: -10%;
-        left: -10%;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 60%);
-        filter: blur(60px);
-        animation: float 20s ease-in-out infinite;
+        top: -15%;
+        left: -5%;
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(circle, rgba(13, 148, 136, 0.08) 0%, transparent 70%);
+        filter: blur(80px);
+        animation: float 25s ease-in-out infinite;
+        opacity: 0.8;
     }
 
     .gradientOrb2 {
         display: block;
         position: absolute;
-        bottom: 0;
+        bottom: -10%;
         right: -5%;
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(circle, rgba(201, 162, 39, 0.1) 0%, transparent 60%);
-        filter: blur(50px);
-        animation: float 15s ease-in-out infinite reverse;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(234, 179, 8, 0.06) 0%, transparent 70%);
+        filter: blur(70px);
+        animation: float 20s ease-in-out infinite reverse;
+        opacity: 0.8;
     }
 
     .heroGrid {
         display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: 0.6fr 1.4fr;
+        /* Maximized image space (30/70 split) */
         gap: var(--space-3xl);
     }
 
@@ -442,7 +499,12 @@
 
     .visualContent {
         order: 2;
-        min-height: 500px;
+        min-height: 700px;
+    }
+
+    .doctorImage {
+        max-width: 900px;
+        /* Bigger base desktop size */
     }
 
     .headline {
@@ -487,8 +549,8 @@
 
     .statItem:hover {
         transform: translateY(-4px);
-        border-color: rgba(16, 185, 129, 0.25);
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+        border-color: var(--primary-200);
+        box-shadow: var(--shadow-md);
     }
 
     .statIcon {
@@ -517,6 +579,20 @@
         font-size: 3.25rem;
     }
 
+    /* Even larger, more impressive doctor photo */
+    /* Massive doctor photo for ultra-wide screens */
+    .doctorImage {
+        max-width: 100%;
+        transform: scale(1.1);
+        /* Slight zoom for extra impact */
+        transform-origin: bottom center;
+    }
+
+    .visualContent {
+        min-height: 950px;
+        /* Taller container */
+    }
+
     .floatingLeaf1 {
         display: block;
         position: absolute;
@@ -539,6 +615,259 @@
         animation: float 10s ease-in-out infinite reverse;
     }
 }
+
+/* ========================================
+   DOCTOR PHOTO STYLES
+   ======================================== */
+.quoteWrapper {
+    position: absolute;
+    top: 15%;
+    left: -160px;
+    /* Floating to the left of the image */
+    z-index: 10;
+    display: none;
+    /* Hidden on mobile by default */
+}
+
+@media (min-width: 1024px) {
+    .quoteWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+
+.quoteBubble {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 12px 20px;
+    border-radius: 20px 20px 0 20px;
+    /* Speech bubble shape */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(13, 148, 136, 0.1);
+    margin-right: 10px;
+}
+
+.quoteText {
+    font-family: var(--font-heading);
+    /* Check font var availability, assumed 'DM Sans' or similar */
+    font-family: 'DM Sans', sans-serif;
+    /* Fallback safe */
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1e293b;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+.quoteArrow {
+    margin-top: -5px;
+    margin-right: -40px;
+    /* Pull arrow overlap */
+    transform: rotate(10deg);
+}
+
+.doctorImageWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.imageFrame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    pointer-events: none;
+}
+
+.frameBorder {
+    position: absolute;
+    inset: 0;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-2xl);
+}
+
+.frameGlow {
+    position: absolute;
+    inset: -10px;
+    background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+    border-radius: var(--radius-2xl);
+    filter: blur(20px);
+    z-index: -1;
+}
+
+.doctorImage {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: visible;
+    max-width: 600px;
+}
+
+.photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.25)) drop-shadow(0 15px 30px rgba(13, 148, 136, 0.15));
+}
+
+/* Floating Credential Badge */
+.credentialBadge {
+    position: absolute;
+    top: 20%;
+    right: -10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.badgeIcon {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.badgeText {
+    display: flex;
+    flex-direction: column;
+}
+
+.badgeTitle {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.2;
+}
+
+.badgeSubtitle {
+    font-size: 0.65rem;
+    color: #64748b;
+}
+
+/* Experience Badge */
+.experienceBadge {
+    position: absolute;
+    bottom: 15%;
+    left: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+}
+
+.expNumber {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+}
+
+.expLabel {
+    font-size: 0.55rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+}
+
+/* Mobile Photo Styles */
+@media (max-width: 767px) {
+    .doctorImageWrapper {
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .doctorImage {
+        max-width: 100%;
+        /* Full width allowed */
+        width: 100%;
+    }
+
+    .credentialBadge {
+        top: auto;
+        bottom: 40px;
+        right: 10px;
+        padding: 6px 10px;
+        gap: 6px;
+        transform: scale(0.9);
+    }
+
+    .badgeIcon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .badgeIcon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .badgeTitle {
+        font-size: 0.75rem;
+    }
+
+    .badgeSubtitle {
+        font-size: 0.6rem;
+    }
+
+    .experienceBadge {
+        bottom: 40px;
+        top: auto;
+        left: 10px;
+        padding: 8px 12px;
+        transform: scale(0.9);
+    }
+
+    .expNumber {
+        font-size: 1.25rem;
+    }
+
+    .expLabel {
+        font-size: 0.55rem;
+    }
+}
+
+/* Tablet Photo Styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .doctorImage {
+        max-width: 350px;
+    }
+
+    .credentialBadge {
+        right: -10px;
+    }
+
+    .experienceBadge {
+        left: -20px;
+    }
+}
+
+
 
 /* Animations */
 @keyframes float {

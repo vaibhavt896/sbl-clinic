@@ -73,8 +73,8 @@ export default function Contact() {
                         {/* Clinic Image */}
                         <div className={styles.clinicImageWrapper}>
                             <Image
-                                src="/images/clinic.png"
-                                alt="SBL Homoeopathic Clinic"
+                                src="/images/clinic-interior.jpg"
+                                alt="SBL Homoeopathic Clinic - Modern Consultation Room"
                                 width={600}
                                 height={400}
                                 className={styles.clinicImage}

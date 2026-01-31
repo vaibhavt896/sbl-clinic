@@ -3,8 +3,8 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import { ArrowRight, Award, Users, Heart, CheckCircle2, Leaf, Sparkles, Star } from 'lucide-react'
+import Image from 'next/image'
 import styles from '@/styles/components/hero.module.css'
-import HealingAnimation from '@/components/common/HealingAnimation'
 
 const stats = [
     { icon: Award, value: '25+', label: 'Years of Care' },
@@ -32,24 +32,9 @@ export default function Hero() {
 
     return (
         <section ref={containerRef} className={styles.hero}>
-            {/* Light Theme Background */}
+            {/* Clean Minimal Background - Focus on Doctor Photo */}
             <div className={styles.bgContainer} aria-hidden="true">
-                <div className={styles.gradientOrb1} />
-                <div className={styles.gradientOrb2} />
-                <div className={styles.gridOverlay} />
-                {/* Decorative Elements */}
-                <div className={styles.floatingLeaf1}>
-                    <svg viewBox="0 0 80 120" fill="none">
-                        <ellipse cx="40" cy="60" rx="30" ry="50" fill="rgba(16,185,129,0.08)" />
-                        <path d="M40 10 L40 110" stroke="rgba(16,185,129,0.15)" strokeWidth="1" />
-                    </svg>
-                </div>
-                <div className={styles.floatingLeaf2}>
-                    <svg viewBox="0 0 60 100" fill="none">
-                        <ellipse cx="30" cy="50" rx="25" ry="40" fill="rgba(201,162,39,0.06)" />
-                        <path d="M30 10 L30 90" stroke="rgba(201,162,39,0.12)" strokeWidth="1" />
-                    </svg>
-                </div>
+                {/* Subtle gradient only - no decorative clutter */}
             </div>
 
             <motion.div style={{ opacity }} className={styles.heroInner}>
@@ -147,24 +132,73 @@ export default function Hero() {
                             </motion.div>
                         </motion.div>
 
-                        {/* Right Column: Healing Animation */}
+                        {/* Right Column: Doctor Photo */}
                         <motion.div
                             style={{ y: animationY }}
                             className={styles.visualContent}
-                            initial={{ opacity: 0, scale: 0.9 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
                             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                            transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
+                            transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
                         >
-                            <HealingAnimation />
+                            <div className={styles.doctorImageWrapper}>
+                                {/* Decorative Frame */}
+                                <div className={styles.imageFrame}>
+                                    <div className={styles.frameBorder} />
+                                    <div className={styles.frameGlow} />
+                                </div>
+
+                                {/* Doctor Photo */}
+                                <div className={styles.doctorImage}>
+                                    <Image
+                                        src="/images/dr-singh-new.png"
+                                        alt="Dr. S B Singh - Homoeopathic Physician"
+                                        width={800}
+                                        height={1000}
+                                        priority
+                                        className={styles.photo}
+                                    />
+                                </div>
+
+                                {/* Floating Credential Badge */}
+                                <motion.div
+                                    className={styles.credentialBadge}
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                                    transition={{ delay: 0.8 }}
+                                >
+                                    <div className={styles.badgeIcon}>
+                                        <Award size={18} />
+                                    </div>
+                                    <div className={styles.badgeText}>
+                                        <span className={styles.badgeTitle}>BHMS, MD</span>
+                                        <span className={styles.badgeSubtitle}>Govt. Registered</span>
+                                    </div>
+                                </motion.div>
+
+                                {/* Experience Badge */}
+                                <motion.div
+                                    className={styles.experienceBadge}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                                    transition={{ delay: 1 }}
+                                >
+                                    <span className={styles.expNumber}>25+</span>
+                                    <span className={styles.expLabel}>Years Experience</span>
+                                </motion.div>
+
+                                {/* Hand-Drawn Quote Animation */}
+                                <QuoteAnnotation />
+                            </div>
                         </motion.div>
                     </div>
-                </div>
-            </motion.div>
+                </div >
+            </motion.div >
 
             {/* Scroll Indicator */}
-            <motion.div
+            < motion.div
                 className={styles.scrollIndicator}
-                initial={{ opacity: 0 }}
+                initial={{ opacity: 0 }
+                }
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5 }}
             >
@@ -172,7 +206,106 @@ export default function Hero() {
                     <div className={styles.scrollDot} />
                 </div>
                 <span>Scroll to explore</span>
+            </motion.div >
+        </section >
+    )
+}
+
+// Sub-component for the animated annotation
+function QuoteAnnotation() {
+    return (
+        <motion.div
+            className={styles.quoteWrapper}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            animate={{
+                y: [0, -4, 0], // Discrete floating motion
+            }}
+            transition={{
+                y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                opacity: { duration: 0.8 }
+            }}
+        >
+            {/* The Quote Text Bubble - Premium Float */}
+            <motion.div
+                className={styles.quoteBubble}
+                initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{
+                    duration: 0.7,
+                    ease: [0.16, 1, 0.3, 1],
+                    delay: 0.2
+                }}
+            >
+                <span className={styles.quoteText}>"Your health is my life's work."</span>
             </motion.div>
-        </section>
+
+            {/* Premium Signature-Style Arrow with Looping Motion */}
+            <svg
+                className={styles.quoteArrow}
+                width="140"
+                height="60"
+                viewBox="0 0 140 60"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                {/* Starting point dot */}
+                <motion.circle
+                    cx="130" cy="10" r="3"
+                    fill="#0d9488"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ delay: 0.8, duration: 0.3 }}
+                />
+
+                {/* Sleek multi-curve Bezier path with Looping "Point" Animation */}
+                <motion.path
+                    d="M130 10C115 10 90 25 70 45C50 65 30 50 15 50"
+                    stroke="#0d9488"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    fill="none"
+                    initial={{ pathLength: 0 }}
+                    animate={{
+                        pathLength: [1, 0.85, 1], // The "pointing" pulse
+                    }}
+                    transition={{
+                        pathLength: {
+                            duration: 1.2,
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            ease: "easeInOut",
+                            repeatDelay: 0.5
+                        },
+                        // Initial draw animation
+                        duration: 1.2,
+                        delay: 1,
+                        ease: [0.16, 1, 0.3, 1]
+                    }}
+                />
+
+                {/* Sharp Minimal Arrowhead - Synced Loop */}
+                <motion.path
+                    d="M15 50L25 46M15 50L23 55"
+                    stroke="#0d9488"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    initial={{ opacity: 0 }}
+                    animate={{
+                        opacity: [1, 0.4, 1], // Pulsing visibility
+                        x: [0, 4, 0], // Subtle nudge pointing towards quote
+                    }}
+                    transition={{
+                        opacity: { duration: 1.2, repeat: Infinity, repeatDelay: 0.5, ease: "easeInOut" },
+                        x: { duration: 1.2, repeat: Infinity, repeatDelay: 0.5, ease: "easeInOut" },
+                        // Initial reveal
+                        delay: 2.1,
+                        duration: 0.2
+                    }}
+                />
+            </svg>
+        </motion.div>
     )
 }

@@ -1,10 +1,10 @@
 /* ========================================
-   FOOTER - MOBILE FIRST (DARK)
+   FOOTER - MOBILE FIRST (LIGHT)
    ======================================== */
 
 .footer {
     position: relative;
-    background: #000000;
+    background: var(--slate-900);
     padding: var(--space-2xl) 0 var(--space-lg);
     overflow: hidden;
 }
@@ -38,7 +38,7 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
     border-radius: 10px;
     color: #ffffff;
 }
@@ -59,7 +59,7 @@
 .doctorName {
     font-size: 0.625rem;
     font-weight: 600;
-    color: #d4af37;
+    color: var(--primary-400);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
@@ -84,8 +84,8 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     color: rgba(255, 255, 255, 0.6);
     transition: all 0.3s ease;
@@ -144,7 +144,7 @@
 }
 
 .contactIcon {
-    color: #34d399;
+    color: var(--primary-400);
     flex-shrink: 0;
     margin-top: 2px;
 }
@@ -164,7 +164,7 @@
     gap: var(--space-md);
     margin-top: var(--space-xl);
     padding-top: var(--space-lg);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .copyright {
@@ -240,7 +240,7 @@
         transform: translateX(-50%);
         width: 600px;
         height: 200px;
-        background: radial-gradient(ellipse, rgba(16, 185, 129, 0.06) 0%, transparent 60%);
+        background: radial-gradient(ellipse, rgba(13, 148, 136, 0.08) 0%, transparent 60%);
         pointer-events: none;
     }
 
@@ -268,16 +268,16 @@
     }
 
     .socialLink:hover {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(16, 185, 129, 0.3);
-        color: #34d399;
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(13, 148, 136, 0.4);
+        color: var(--primary-400);
     }
 
     .footerLink:hover {
-        color: #34d399;
+        color: var(--primary-400);
     }
 
     .legalLinks a:hover {
-        color: #34d399;
+        color: var(--primary-400);
     }
 }

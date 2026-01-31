@@ -19,27 +19,31 @@
     }
 
     .button {
-        width: 44px;
-        height: 44px;
-        box-shadow: 0 4px 16px rgba(37, 211, 102, 0.25);
+        width: 48px;
+        height: 48px;
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
     }
 
     .button svg {
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
     }
 
     .presenceIndicator {
-        width: 12px;
-        height: 12px;
-        top: 1px;
-        right: 1px;
+        width: 11px;
+        height: 11px;
+        top: 0px;
+        right: 0px;
         border-width: 2px;
     }
 
     .tooltip {
         max-width: 200px;
         padding: var(--space-sm) var(--space-md);
+    }
+
+    .menu {
+        width: 260px;
     }
 }
 
@@ -83,6 +87,66 @@
     background: #4ade80;
     border: 3px solid #25D366;
     border-radius: var(--radius-full);
+}
+
+/* Quick Actions Menu */
+.menu {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    width: 280px;
+    overflow: hidden;
+    margin-right: var(--space-sm);
+}
+
+.menuHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    background: #25D366;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.menuActions {
+    padding: var(--space-sm);
+}
+
+.menuAction {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    width: 100%;
+    padding: var(--space-md);
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    text-align: left;
+    transition: all var(--transition-fast);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.menuAction:hover {
+    background: var(--warm-gray-50);
+}
+
+.menuAction svg {
+    color: #25D366;
+    flex-shrink: 0;
+}
+
+.menuNote {
+    padding: var(--space-sm) var(--space-lg) var(--space-md);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin: 0;
+    text-align: center;
+    border-top: 1px solid var(--border-light);
 }
 
 .tooltip {
